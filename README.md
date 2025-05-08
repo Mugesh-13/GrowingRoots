@@ -47,3 +47,49 @@ Species and Their Byproducts
 
 Learning Hub (Tree Care Tips)
 Educational content on tree care and plantation best practices.
+
+----Model class---
+public class User {
+    private Long id;
+    private String name;
+    private String email;
+    private String password;
+    private String location;
+    private List<Tree> treesOwned;             // Trees the user added
+    private List<SaplingRequest> saplingRequests; // Requests made by this user
+    private List<SaplingDonation> saplingDonations; // Saplings ready to donate
+}
+public class Tree {
+    private Long id;
+    private String name;
+    private List<String> byproducts;           // E.g., ["Fruit", "Oil"]
+    private String suitableSoil;               // E.g., Loamy
+    private String suitableClimate;            // E.g., Tropical
+    private Long ownerId;                      // FK to User who added it
+}
+public class SaplingRequest {
+    private Long id;
+    private Long userId;                       // FK to requester
+    private String treeName;                   // Type of tree requested
+    private Integer quantity;
+    private String status;                     // pending/fulfilled
+    private String requestDate;
+}
+public class SaplingDonation {
+    private Long id;
+    private Long donorId;                      // FK to user
+    private String treeName;                   // Type of sapling
+    private Integer quantity;
+    private String availableFromDate;
+}
+
+
+
+
+
+
+
+
+
+
+
